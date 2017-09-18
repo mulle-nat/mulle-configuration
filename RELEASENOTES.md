@@ -1,3 +1,7 @@
+### 3.0.1
+
+* inherit definitions properly using CMakeDependencies.txt and not via hacks in Standalone
+
 # 3.0.0
 
 * Added Standalone.cmake and DependenciesIncObjC.cmake for often used functionality

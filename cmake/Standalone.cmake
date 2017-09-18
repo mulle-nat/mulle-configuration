@@ -7,8 +7,10 @@
 # Optional:
 #
 # STANDALONE_NAME
+# STANDALONE_DEFINITIONS
 # STANDALONE_SOURCE
 # STANDALONE_SYMBOL_PREFIXES
+# STANDALONE_NORMAL_LOAD_LIBRARIES
 # MULLE_LANGUAGE
 #
 set( STANDALONE_VERSION 3)
@@ -74,12 +76,6 @@ if( MSVC)
 
    message( STATUS "MSVC will generate \"${DEF_FILE}\" from ${TARGET_ALL_LOAD_LIBRARIES}")
 
-   if( "${MULLE_LANGUAGE}" MATCHES "ObjC")
-      add_definitions( -DMULLE_ALLOCATOR_EXTERN_GLOBAL=extern)
-      add_definitions( -DMULLE_OBJC_RUNTIME_EXTERN_GLOBAL=extern)
-      add_definitions( -DMULLE_CONTAINER_EXTERN_GLOBAL=extern)
-   endif()
-
    add_custom_command( OUTPUT ${DEF_FILE}
                        COMMAND mulle-mingw-dumpdef.bat -o "${DEF_FILE}"
                                --directory "${BUILD_RELATIVE_DEPENDENCIES_DIR}/lib"
@@ -96,6 +92,11 @@ ${STANDALONE_SOURCE}
 ${DEF_FILE}
 )
 
+# PRIVATE is a guess
+target_compile_definitions( ${STANDALONE_NAME}
+PRIVATE ${STANDALONE_DEFINITIONS}
+)
+
 add_dependencies( ${STANDALONE_NAME} ${STANDALONE_BASE_NAME})
 
 
@@ -108,6 +109,6 @@ target_link_libraries( ${STANDALONE_NAME}
 ${BEGIN_ALL_LOAD}
 ${STANDALONE_FORCE_ALL_LOAD_LIBRARIES}
 ${END_ALL_LOAD}
-${OS_SPECIFIC_LIBRARIES}
+${STANDALONE_NORMAL_LOAD_LIBRARIES}
 )
 

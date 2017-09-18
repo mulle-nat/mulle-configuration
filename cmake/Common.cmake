@@ -6,6 +6,9 @@ set( MULLE_CONFIGURATION_VERSION 3)
 
 cmake_policy( SET CMP0054 NEW)
 
+# makes nicer Xcode projects, I see no detriment
+set_property( GLOBAL PROPERTY USE_FOLDERS ON)
+
 if( APPLE)
    cmake_minimum_required (VERSION 3.0)
 
@@ -27,7 +30,7 @@ if( APPLE)
    set( END_ALL_LOAD)
    set( FORCE_LOAD_PREFIX "-force_load ")
 else()
-   if(WIN32)
+   if( WIN32)
       # may not be enough though...
 
       cmake_minimum_required (VERSION 3.4)
@@ -38,6 +41,7 @@ else()
       # linker stuff (since VS 2015)
       set( FORCE_LOAD_PREFIX "-WHOLEARCHIVE:")
    else()
+      # UNIXy gcc based
       cmake_minimum_required (VERSION 3.0)
 
       # set only for libraries ?
