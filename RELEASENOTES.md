@@ -1,3 +1,7 @@
+### 3.1.2
+
+* rename MulleTests.cmake to MulleTest.cmake
+
 ### 3.1.1
 
 * Various small improvements
