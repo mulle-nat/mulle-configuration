@@ -1,5 +1,5 @@
 
-option( MULLE_TESTS "Enable output for mulle-tests" OFF)
+option( MULLE_TEST "Enable link info output for mulle-test" OFF)
 
 
 #
@@ -7,9 +7,9 @@ option( MULLE_TESTS "Enable output for mulle-tests" OFF)
 # write a CMakeLists.txt for each test
 # Let's emit some specific information for tests
 #
-# We could also just grep CMakeCache.txt here, but how stable is it ?
+# We could also just grep CMakeCache.txt here, but how stable is its format ?
 #
-if( MULLE_TESTS)
+if( MULLE_TEST)
    add_custom_target( test_support ALL
                    DEPENDS ${PROJECT_BINARY_DIR}/os-specific-libs.txt
                            ${PROJECT_BINARY_DIR}/c-dependency-libs.txt

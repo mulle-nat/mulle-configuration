@@ -90,4 +90,5 @@ if( "${MULLE_C_COMPILER_ID}" MATCHES "^(MSVC-Clang|MSVC-MulleClang)$")
 endif()
 
 include( MulleBootstrap)
-include( MulleTests)
+
+# include( MulleTests) # too early
