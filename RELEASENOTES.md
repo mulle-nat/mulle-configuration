@@ -1,3 +1,8 @@
+## 3.1
+
+* add mulle-tests support to mulle-configuration
+* extract mulle-bootstrap specific stuff, making it optional opt-out
+
 ### 3.0.1
 
 * inherit definitions properly using CMakeDependencies.txt and not via hacks in Standalone
