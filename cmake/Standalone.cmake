@@ -83,7 +83,6 @@ if( MSVC)
                                ${STANDALONE_ALL_LOAD_LIBRARIES}
                        DEPENDS ${STANDALONE_ALL_LOAD_LIBRARIES}
                        VERBATIM)
-   find_program( CREATE_INC mulle-objc-create-dependencies-inc.bat ${DEPENDENCIES_DIR}/bin)
 endif()
 
 

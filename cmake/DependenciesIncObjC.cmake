@@ -19,7 +19,11 @@ message( STATUS "OBJC_DEPENDENCY_NAMES is ${OBJC_DEPENDENCY_NAMES}")
 
 # runs in build dir
 if( NOT CREATE_INC)
-   find_program( CREATE_INC mulle-objc-create-dependencies-inc ${DEPENDENCIES_DIR}/bin)
+   if( MSVC)
+      find_program( CREATE_INC mulle-objc-create-dependencies-inc.bat ${DEPENDENCIES_DIR}/bin)
+    else()
+      find_program( CREATE_INC mulle-objc-create-dependencies-inc ${DEPENDENCIES_DIR}/bin)
+    endif()
 endif()
 
 add_custom_command( TARGET ${OBJC_LIBRARY_NAME}
