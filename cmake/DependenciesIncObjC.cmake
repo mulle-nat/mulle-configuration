@@ -29,8 +29,9 @@ endif()
 add_custom_command( TARGET ${OBJC_LIBRARY_NAME}
    POST_BUILD
    COMMAND ${CREATE_INC}
-              -v
-              -o ${DEPENDENCIES_INC}
+              -v 
+              -c "${CMAKE_BUILD_TYPE}"
+              -o "${DEPENDENCIES_INC}"
               ${OBJC_LIBRARY_NAME}
               ${OBJC_DEPENDENCY_NAMES}
    DEPENDS "$<TARGET_FILE:${OBJC_LIBRARY_NAME}>"
