@@ -28,3 +28,20 @@ ${C_DEPENDENCY_LIBRARIES}
 ${OS_SPECIFIC_LIBRARIES}
 )
 
+#
+# need this for .aam projects
+#
+set_target_properties( "${EXECUTABLE_NAME}"
+   PROPERTIES LINKER_LANGUAGE C
+)
+
+#
+# For noobs add a line so they find the output
+#
+add_custom_command(
+  TARGET "${EXECUTABLE_NAME}"
+  POST_BUILD
+  COMMAND echo "Your executable \"$<TARGET_FILE:${EXECUTABLE_NAME}>\" is now ready to run"
+  VERBATIM
+)
+

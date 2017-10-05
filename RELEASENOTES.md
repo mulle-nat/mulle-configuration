@@ -1,3 +1,7 @@
+### 3.2.1
+
+* various improvements and cmake modules for objc
+
 ### 3.1.2
 
 * rename MulleTests.cmake to MulleTest.cmake

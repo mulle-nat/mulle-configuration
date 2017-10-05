@@ -7,7 +7,8 @@
 # OBJC_DEPENDENCY_LIBRARIES
 #
 #
-# Create src/dependencies.inc for Objective-C projects
+# Create src/dependencies.inc for Objective-C projects. This contains a
+# list of all the classes and categories, contained in a project.
 #
 if( NOT DEPENDENCIES_INC)
   set( DEPENDENCIES_INC "${CMAKE_SOURCE_DIR}/src/dependencies.inc")
@@ -29,7 +30,7 @@ endif()
 add_custom_command( TARGET ${OBJC_LIBRARY_NAME}
    POST_BUILD
    COMMAND ${CREATE_INC}
-              -v 
+              -v
               -c "${CMAKE_BUILD_TYPE}"
               -o "${DEPENDENCIES_INC}"
               ${OBJC_LIBRARY_NAME}

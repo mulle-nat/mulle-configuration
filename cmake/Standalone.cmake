@@ -19,20 +19,20 @@ if( NOT STANDALONE_NAME)
    set( STANDALONE_NAME "${STANDALONE_BASE_NAME}Standalone")
 endif()
 
-#
-# Required empty standalone source file
-#
-if( NOT STANDALONE_SOURCE)
-   if( "${MULLE_LANGUAGE}" MATCHES "ObjC")
-      set( STANDALONE_SOURCE "src/${STANDALONE_NAME}.m")
-   else()
-      set( STANDALONE_SOURCE "src/${STANDALONE_NAME}.c")
-   endif()
-else()
-   if( "${STANDALONE_SOURCE}" MATCHES "-")
-      unset( STANDALONE_SOURCE)
-   endif()
-endif()
+# #
+# # Required empty standalone source file
+# #
+# if( NOT STANDALONE_SOURCE)
+#    if( "${MULLE_LANGUAGE}" MATCHES "ObjC")
+#       set( STANDALONE_SOURCE "src/${STANDALONE_NAME}.m")
+#    else()
+#       set( STANDALONE_SOURCE "src/${STANDALONE_NAME}.c")
+#    endif()
+# else()
+#    if( "${STANDALONE_SOURCE}" MATCHES "-")
+#       unset( STANDALONE_SOURCE)
+#    endif()
+# endif()
 
 #
 # symbol prefixes to export on Windows, ignored on other platforms
@@ -86,17 +86,29 @@ if( MSVC)
 endif()
 
 
+#
+# remove warning on cmake sometime
+#
 add_library( ${STANDALONE_NAME} SHARED
 ${STANDALONE_SOURCE}
 ${DEF_FILE}
 )
+
+set_target_properties( ${STANDALONE_NAME}
+PROPERTIES LINKER_LANGUAGE "C")
 
 # PRIVATE is a guess
 target_compile_definitions( ${STANDALONE_NAME}
 PRIVATE ${STANDALONE_DEFINITIONS}
 )
 
-add_dependencies( ${STANDALONE_NAME} ${STANDALONE_BASE_NAME})
+
+if( NOT STANDALONE_DEPENDENCIES)
+  set( STANDALONE_DEPENDENCIES ${STANDALONE_BASE_NAME})
+endif()
+
+add_dependencies( ${STANDALONE_NAME} ${STANDALONE_DEPENDENCIES})
+
 
 
 #
