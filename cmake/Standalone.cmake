@@ -92,6 +92,12 @@ ${STANDALONE_SOURCE}
 ${DEF_FILE}
 )
 
+
+if( NOT STANDALONE_SOURCE)
+   set_target_properties( ${STANDALONE_NAME} PROPERTIES LINKER_LANGUAGE "C")
+endif()
+
+
 # PRIVATE is a guess
 target_compile_definitions( ${STANDALONE_NAME}
 PRIVATE ${STANDALONE_DEFINITIONS}
