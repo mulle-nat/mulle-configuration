@@ -1,3 +1,7 @@
+### 3.2.3
+
+* Standalone changes STANDALONE_SOURCE -> STANDALONE_SOURCES and more
+
 ### 3.2.1
 
 * various improvements and cmake modules for objc
