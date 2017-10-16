@@ -1,4 +1,4 @@
 .DS_Store
 *.bak
-bin/tap-info.sh
-
+tmp.*
+mulle-project/publisher-info.sh
