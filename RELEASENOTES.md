@@ -1,3 +1,7 @@
+### 3.2.5
+
+* make Standalone aware of startup library
+
 ### 3.2.3
 
 * Standalone changes STANDALONE_SOURCE -> STANDALONE_SOURCES and more
