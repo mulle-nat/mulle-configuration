@@ -1,3 +1,7 @@
+### 3.2.7
+
+* set CMAKE_OSX_DEPLOYMENT_TARGET to current instead of 10.6
+
 ### 3.2.5
 
 * make Standalone aware of startup library

@@ -17,9 +17,14 @@ if( APPLE)
       set( CMAKE_OSX_SYSROOT "/" CACHE STRING "SDK for OSX" FORCE)   # means current OS X
    endif()
 
-   # baseline set to minimum 10.6 for rpath
+   # baseline set to OSX_VERSION for rpath (is this still needed?)
    if( NOT CMAKE_OSX_DEPLOYMENT_TARGET)
-      set(CMAKE_OSX_DEPLOYMENT_TARGET "10.6" CACHE STRING "Deployment target for OSX" FORCE)
+      execute_process( COMMAND sw_vers -productVersion
+                       OUTPUT_VARIABLE OSX_VERSION_FULL
+                       OUTPUT_STRIP_TRAILING_WHITESPACE)
+      string(REGEX REPLACE "\\.[^.]*$" "" OSX_VERSION ${OSX_VERSION_FULL})
+
+      set(CMAKE_OSX_DEPLOYMENT_TARGET "${OSX_VERSION}" CACHE STRING "Deployment target for OSX" FORCE)
    endif()
 
    set( CMAKE_POSITION_INDEPENDENT_CODE FALSE)
