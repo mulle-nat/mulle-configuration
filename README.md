@@ -1,3 +1,8 @@
+# THIS PROJECT HAS BEEN SUPERSEDED BY MULLE-SDE-DEVELOPER
+
+[mulle-sde-developer](//github.com/mulle-sde/mulle-sde-developer)
+
+
 ## cmake includes
 
 This project contains some common definitions for cmake to make `CMakeLists.txt`
