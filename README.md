@@ -1,6 +1,6 @@
 # THIS PROJECT HAS BEEN SUPERSEDED BY MULLE-SDE-DEVELOPER
 
-[mulle-sde-developer](//github.com/mulle-sde/mulle-sde-developer)
+-> [mulle-sde-developer](//github.com/mulle-sde/mulle-sde-developer)
 
 
 ## cmake includes
